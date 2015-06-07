@@ -1,5 +1,10 @@
-from django.shortcuts import response
+from django.shortcuts import render
+from .forms import UploadFileForm
 
 
 def home(request):
-    return response(request, 'templates/home.html')
+    form = UploadFileForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'home.html', context)
